@@ -1,0 +1,16 @@
+#!/usr/bin/env fish
+
+set argc (count $argv)
+
+if [ $argc -ne 3 ]
+    echo -e "Usage:\tcopy what where_to_send where_to_land"
+    exit 1
+end
+
+set what $argv[1]
+set where_to_send $argv[2]
+set where_to_land $argv[3]
+
+echo "Starting to copy..."
+scp $what $where_to_send:$where_to_land
+echo "Copied!"
